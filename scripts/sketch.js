@@ -1,30 +1,36 @@
-var font;
-var vehicles = [];
+function SteeringText() {
+    let vehicles = [];
 
-function preload(){
-    font = loadFont('fonts/AvenirNextLTPro-Demi.otf');
-}
-
-function setup(){
-    createCanvas(windowWidth, windowHeight);
-    background(51);
-
-    var points = font.textToPoints('WMaxZimmerman', 100, 200, 192);
-
-    for (var i = 0; i < points.length; i++){
-        var pt = points[i];
-        var vehicle = new Vehicle(pt.x, pt.y);
-        vehicles.push(vehicle);
+    this.preload = function(){
+	font = loadFont('fonts/AvenirNextLTPro-Demi.otf');
     }
-}
 
-function draw() {
-    background(51);
+    this.setup = function(){
+	createCanvas(windowWidth, windowHeight);
+	background(51);
 
-    for (var j = 0; j < vehicles.length; j++){
-        var v = vehicles[j];
-        v.behaviors();
-        v.update();
-        v.show();
+	let points = font.textToPoints('WMaxZimmerman', 100, 200, 192);
+
+	for (let i = 0; i < points.length; i++){
+            let pt = points[i];
+            let vehicle = new Vehicle(pt.x, pt.y);
+            vehicles.push(vehicle);
+	}
+    }
+
+    this.draw = function() {
+	background(51);
+
+	for (let j = 0; j < vehicles.length; j++){
+            let v = vehicles[j];
+            v.behaviors();
+            v.update();
+            v.show();
+	}
+    }
+
+    this.mousePressed = function()
+    {
+        this.sceneManager.showNextScene();
     }
 }
