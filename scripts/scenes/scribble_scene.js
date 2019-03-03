@@ -23,7 +23,8 @@ function ScribbleTest() {
         }
         
         stroke(160, 36, 59); // Red
-        line(30, 0, 30, 1500);
+        let redOffset = (windowWidth * .04)
+        line(redOffset, 0, redOffset, windowHeight);
     }
 
     this.drawBanner = function() {
@@ -35,7 +36,7 @@ function ScribbleTest() {
 
         let x = (windowWidth / 2);
         let y = 50;
-        let w = windowWidth - 200;
+        let w = windowWidth * .9;
         let h = 90;
 
         // draw a rect for the value
@@ -45,7 +46,7 @@ function ScribbleTest() {
 
         // textFont('fonts/BrookeS8.ttf');
         stroke(239, 243, 247); // White
-        let textWeight = 75;
+        let textWeight = 32;
         textSize(textWeight);
         text('W Max Zimmerman', x - (textWeight * 4), y + (textWeight / 2));
     }
