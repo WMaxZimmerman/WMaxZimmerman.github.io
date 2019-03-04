@@ -10,6 +10,11 @@ function ScribbleRect(x, y, w, h, text){
     this.scribble = new Scribble();
 };
 
+ScribbleRect.prototype.update = function(manager) {
+    // === Check Events ===
+    this.mouseBeInsideMe();
+}
+
 ScribbleRect.prototype.draw = function() {
     // === This keeps the drawings consistent ===
     randomSeed(this.seed);
@@ -25,11 +30,17 @@ ScribbleRect.prototype.draw = function() {
     if (this.text !== undefined){
         // textFont('fonts/BrookeS8.ttf');
         let length = this.text.length;
-        console.log(length);
         stroke(239, 243, 247); // White
         let textWeight = 32;
         textSize(textWeight);
         text(this.text, this.x - (length * 8), this.y + (textWeight / 2));   
+    }
+}
+
+// === Events ===
+ScribbleRect.prototype.mouseBeInsideMe = function() {
+    if (this.isInsideMe(mouseX, mouseY)) {
+        document.body.style.cursor = "pointer";
     }
 }
 

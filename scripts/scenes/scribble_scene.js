@@ -18,7 +18,16 @@ function ScribbleTest() {
         this.sceneSwitch = new ScribbleRect(x, y, w, h, 'Switch');
     }
 
+    this.update = function() {
+        document.body.style.cursor = "default";
+        this.sceneSwitch.update();
+    }
+
     this.draw = function() {
+        // === Call Update Function for predraw udpates ===
+        this.update();
+
+        // === Actually Draw UI ===
         this.drawBackground();
         this.banner.draw();
         this.sceneSwitch.draw();
