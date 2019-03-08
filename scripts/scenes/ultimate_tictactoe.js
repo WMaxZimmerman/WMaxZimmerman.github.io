@@ -16,9 +16,6 @@ function ScribbleTest() {
         w = 100;
         h = 40;        
         this.sceneSwitch = new ScribbleRect(x, y, w, h, 'Switch');
-
-        this.game = new UltimateTicTacToe();
-        this.game.setup();
     }
 
     this.update = function() {
@@ -34,7 +31,6 @@ function ScribbleTest() {
         this.drawBackground();
         this.banner.draw();
         this.sceneSwitch.draw();
-        this.game.draw();
     }
 
     this.drawBackground = function() {
@@ -56,7 +52,6 @@ function ScribbleTest() {
     this.mousePressed = function()
     {
         this.sceneSwitch.mouseClick(this)
-        this.game.mousePressed();
     }
 
     this.showNextScene = function() {
