@@ -1,19 +1,21 @@
-function ScribbleRect(x, y, w, h, text){
+function ScribbleButton(x, y, w, h, text, onClickFunction){
     // === Position Variables ===
     this.x = x;
     this.y = y;
     this.width = w;
     this.height = h;
     this.text = text;
+    this.onClick = onClickFunction;
 
     this.seed = 1;
     this.scribble = new Scribble();
 };
 
-ScribbleRect.prototype.update = function(manager) {
+ScribbleButton.prototype.update = function(manager) {
+    this.mouseBeInsideMe();
 }
 
-ScribbleRect.prototype.draw = function() {
+ScribbleButton.prototype.draw = function() {
     // === This keeps the drawings consistent ===
     randomSeed(this.seed);
     
@@ -29,14 +31,21 @@ ScribbleRect.prototype.draw = function() {
         // textFont('fonts/BrookeS8.ttf');
         let length = this.text.length;
         stroke(239, 243, 247); // White
-        let textWeight = 60;
+        let textWeight = 32;
         textSize(textWeight);
         textAlign(CENTER, CENTER);
-        text(this.text, this.x, this.y, this.w);
+        text(this.text, this.x, this.y, this.w);   
     }
 }
 
-ScribbleRect.prototype.fillRect = function(x, y, w, h) {
+// === Events ===
+ScribbleButton.prototype.mouseBeInsideMe = function() {
+    if (this.isInsideMe(mouseX, mouseY)) {
+        document.body.style.cursor = "pointer";
+    }
+}
+
+ScribbleButton.prototype.fillRect = function(x, y, w, h) {
     // calculate the x and y coordinates for the border points of the hachure
     let xleft   = this.x - (this.width / 2);
     let xright  = this.x + (this.width / 2);
@@ -74,5 +83,22 @@ ScribbleRect.prototype.fillRect = function(x, y, w, h) {
     this.scribble.scribbleFilling( xCoords, yCoords , gap, angle );
 }
 
-ScribbleRect.prototype.mousePressed = function(manager) {
+ScribbleButton.prototype.mousePressed = function(manager) {
+    if (this.isInsideMe(mouseX, mouseY)) {
+        this.onClick();
+    }
 }
+
+ScribbleButton.prototype.isInsideMe = function(x, y) {
+    let xleft   = this.x - (this.width / 2);
+    let xright  = this.x + (this.width / 2);
+    let ytop    = this.y - (this.height / 2);
+    let ybottom = this.y + (this.height / 2);
+
+    if (x >= xleft && x <= xright && y <= ybottom && y >= ytop ) {
+        return true;
+    }
+
+    return false;
+}
+

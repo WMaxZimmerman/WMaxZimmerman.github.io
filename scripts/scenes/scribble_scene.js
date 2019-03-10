@@ -1,7 +1,9 @@
 function ScribbleTest() {
-    this.scribble = new Scribble();
+    let self = this;
+    self.scribble = new Scribble();
+    self.objectMap = new Map();
 
-    this.setup = function(){
+    self.setup = function(){
 	    createCanvas(windowWidth, windowHeight);
         loadFont('fonts/scribble_box_demo.ttf');
 
@@ -9,36 +11,51 @@ function ScribbleTest() {
         let y = 50;
         let w = windowWidth * .9;
         let h = 90;
-        this.banner = new ScribbleRect(x, y, w, h, 'W Max Zimmerman');
+        let banner = new ScribbleRect(x, y, w, h, 'W Max Zimmerman');
+        self.objectMap.set('banner', banner);        
 
         x = (windowWidth * .9);
         y = (windowHeight * .9);
         w = 100;
         h = 40;        
-        this.sceneSwitch = new ScribbleRect(x, y, w, h, 'Switch');
+        let sceneSwitch = new ScribbleButton(x, y, w, h, 'Switch', self.showNextScene);
+        self.objectMap.set('sceneSwitch', sceneSwitch);
 
-        this.game = new UltimateTicTacToe();
-        this.game.setup();
+        x = (windowWidth * .9) - 140;
+        y = (windowHeight * .9);
+        w = 100;
+        h = 40;        
+        let newGame = new ScribbleButton(x, y, w, h, 'Game', self.createGame);
+        self.objectMap.set('newGame', newGame);        
     }
 
-    this.update = function() {
+    self.update = function() {
         document.body.style.cursor = "default";
-        this.sceneSwitch.update();
-        this.game.update();
+        
+        for (var value of self.objectMap.values()) {
+            value.update();
+        }
     }
 
-    this.draw = function() {
+    self.draw = function() {
         // === Call Update Function for predraw udpates ===
-        this.update();
+        self.update();
 
         // === Actually Draw UI ===
-        this.drawBackground();
-        this.banner.draw();
-        this.sceneSwitch.draw();
-        this.game.draw();
+        self.drawBackground();
+        for (var value of self.objectMap.values()) {
+            value.draw();
+        }
+    }
+    
+    self.mousePressed = function()
+    {
+        for (var value of self.objectMap.values()) {
+            value.mousePressed(self);
+        }
     }
 
-    this.drawBackground = function() {
+    self.drawBackground = function() {
         strokeWeight(1);
 	    background(229, 220, 142);
 
@@ -53,14 +70,14 @@ function ScribbleTest() {
         let redOffset = (windowWidth * .04);
         line(redOffset, 0, redOffset, windowHeight);
     }
-    
-    this.mousePressed = function()
-    {
-        this.sceneSwitch.mouseClick(this)
-        this.game.mousePressed();
+
+    self.createGame = function() {
+        let game = new UltimateTicTacToe();
+        game.setup();
+        self.objectMap.set('game', game);
     }
 
-    this.showNextScene = function() {
-        this.sceneManager.showNextScene();
+    self.showNextScene = function() {
+        self.sceneManager.showNextScene();
     }
 }
