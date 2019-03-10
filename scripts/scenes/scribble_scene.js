@@ -49,7 +49,7 @@ function ScribbleTest() {
         }
         
         stroke(160, 36, 59); // Red
-        let redOffset = (windowWidth * .04)
+        let redOffset = (windowWidth * .04);
         line(redOffset, 0, redOffset, windowHeight);
     }
     

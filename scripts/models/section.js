@@ -1,4 +1,7 @@
 function Section(i, j, w, c) {
+    // === References ===
+    this.scribble = new Scribble();
+    
     this.i = i;
     this.j = j;
     this.x = i * w;
@@ -21,24 +24,45 @@ function Section(i, j, w, c) {
     }
 }
 
-Section.prototype.show = function(xOffset, yOffset) {
+Section.prototype.show = function(xOffset, yOffset, topX, topY, width) {
     let actualX = this.x + xOffset;
     let actualY = this.y + yOffset;
     stroke(0);
-    fill(this.colorOne());
-    rect(actualX, actualY, this.w, this.w);
 
-    for (let i = 0; i < 3; i++) {
-        for (let j = 0; j < 3; j++) {
-            this.cells[i][j].show(xOffset, yOffset);
-        }
-    }
+    this.drawBoard(topX, topY, width);
 
-    if (this.isWon === true){
-        fill(this.color());
+    // fill(this.colorOne());
+    // rect(actualX, actualY, this.w, this.w);
+
+    // for (let i = 0; i < 3; i++) {
+    //     for (let j = 0; j < 3; j++) {
+    //         this.cells[i][j].show(xOffset, yOffset);
+    //     }
+    // }
+
+    // if (this.isWon === true){
+    //     fill(this.color());
         
-        ellipse(actualX + (this.w * 0.5), actualY + (this.w * 0.5), this.w * 0.5);
-    }
+    //     ellipse(actualX + (this.w * 0.5), actualY + (this.w * 0.5), this.w * 0.5);
+    // }
+}
+
+Section.prototype.drawBoard = function(topX, topY, width) {
+    strokeWeight( 2 );
+
+    width = width * .8;
+    let wOffset = width * .1;
+    topX = topX + wOffset;
+    topY = topY + wOffset;
+    let offset = width / 3;
+    
+    // === Horizontal Lines ===
+    this.scribble.scribbleLine( topX, topY + offset, topX + width, topY + offset );
+    this.scribble.scribbleLine( topX, topY + (offset * 2), topX + width, topY + (offset * 2) );
+    
+    // === Vertical Lines ===
+    this.scribble.scribbleLine( topX + offset, topY, topX + offset, topY + width );
+    this.scribble.scribbleLine( topX + (offset * 2), topY, topX + (offset * 2), topY + width );
 }
 
 Section.prototype.color = function() {

@@ -7,12 +7,15 @@ function make2DArray(cols, rows) {
 }
 
 function UltimateTicTacToe() {
+    // === References ===
+    this.scribble = new Scribble();
+    
     // === Constants ===
     this.playerOneColor = color(255, 100, 100);
     this.playerTwoColor = color(100, 100, 255);
     this.cols = 3;
     this.rows = 3;
-    this.w = 150;
+    this.w = (windowWidth * .65);
 
     /// === Properties ===
     this.halfWidth = (windowWidth / 2) - this.w;
@@ -111,15 +114,43 @@ function UltimateTicTacToe() {
     this.draw = function(){
         this.halfWidth = (windowWidth / 2) - this.w;
         this.halfHeight = (windowHeight / 2) - this.w;
+        stroke(0);
+        strokeWeight( 5 );
+        let yOffset = (windowHeight * .12);
+        let xOffset =  (windowWidth * .04);
+        this.w = ((windowWidth - xOffset) * .65);
+        let tempW = (windowHeight * .65);
+        if (tempW < this.w) this.w = tempW;
         
+        let topY = yOffset;
+        let topX = (windowWidth / 2) - (this.w / 2);
+
+        this.drawBoard(topX, topY, this.w);
+
+        let sectionWidth = this.w / 3;
         for (let i = 0; i < this.cols; i++) {
+            let sectionTopX = topX + (sectionWidth * i);
+            
             for (let j = 0; j < this.rows; j++) {
-                this.sections[i][j].show(this.halfWidth, this.halfHeight);
+                let sectionTopY = topY + (sectionWidth * j);
+                this.sections[i][j].show(this.halfWidth, this.halfHeight, sectionTopX, sectionTopY, sectionWidth);
             }
         }
 
         if (this.sectionWon.triggered){
             this.checkForWin();
         }
+    }
+
+    this.drawBoard = function(topX, topY, width) {
+        let offset = width / 3;
+        
+        // === Horizontal Lines ===
+        this.scribble.scribbleLine( topX, topY + offset, topX + width, topY + offset );
+        this.scribble.scribbleLine( topX, topY + (offset * 2), topX + width, topY + (offset * 2) );
+        
+        // === Vertical Lines ===
+        this.scribble.scribbleLine( topX + offset, topY, topX + offset, topY + width );
+        this.scribble.scribbleLine( topX + (offset * 2), topY, topX + (offset * 2), topY + width );
     }
 }
