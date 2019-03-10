@@ -1,6 +1,12 @@
 function Section(i, j, w, c) {
     // === References ===
     this.scribble = new Scribble();
+
+    // === Position / Size Properties ===
+    this.topX;
+    this.topY;
+    this.width;
+    this.offset;
     
     this.i = i;
     this.j = j;
@@ -24,45 +30,60 @@ function Section(i, j, w, c) {
     }
 }
 
-Section.prototype.show = function(xOffset, yOffset, topX, topY, width) {
+Section.prototype.update = function(topX, topY, width) {
+    this.width = width * .8;
+    let wOffset = width * .1;
+    this.topX = topX + wOffset;
+    this.topY = topY + wOffset;
+    this.offset = this.width / 3;
+
+    let cellWidth = this.width / 3;
+    for (let i = 0; i < 3; i++) {
+        let cellTopX = this.topX + (cellWidth * i);
+        
+        for (let j = 0; j < 3; j++) {
+            let cellTopY = this.topY + (cellWidth * j);
+            this.cells[i][j].update(cellTopX, cellTopY, cellWidth);
+        }
+    }
+}
+
+Section.prototype.show = function(xOffset, yOffset) {
     let actualX = this.x + xOffset;
     let actualY = this.y + yOffset;
     stroke(0);
 
-    this.drawBoard(topX, topY, width);
+    this.drawBoard();
 
     // fill(this.colorOne());
     // rect(actualX, actualY, this.w, this.w);
 
-    // for (let i = 0; i < 3; i++) {
-    //     for (let j = 0; j < 3; j++) {
-    //         this.cells[i][j].show(xOffset, yOffset);
-    //     }
-    // }
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            this.cells[i][j].show(xOffset, yOffset);
+        }
+    }
 
-    // if (this.isWon === true){
-    //     fill(this.color());
+    if (this.isWon === true){
+        let centerX = this.topX + (this.width / 2);
+        let centerY = this.topY + (this.width / 2);
+        let radius = (this.width / 2) * .8;
+        fill(this.color());
         
-    //     ellipse(actualX + (this.w * 0.5), actualY + (this.w * 0.5), this.w * 0.5);
-    // }
+        ellipse(centerX, centerY, radius);
+    }
 }
 
-Section.prototype.drawBoard = function(topX, topY, width) {
+Section.prototype.drawBoard = function() {
     strokeWeight( 2 );
-
-    width = width * .8;
-    let wOffset = width * .1;
-    topX = topX + wOffset;
-    topY = topY + wOffset;
-    let offset = width / 3;
     
     // === Horizontal Lines ===
-    this.scribble.scribbleLine( topX, topY + offset, topX + width, topY + offset );
-    this.scribble.scribbleLine( topX, topY + (offset * 2), topX + width, topY + (offset * 2) );
+    this.scribble.scribbleLine( this.topX, this.topY + this.offset, this.topX + this.width, this.topY + this.offset );
+    this.scribble.scribbleLine( this.topX, this.topY + (this.offset * 2), this.topX + this.width, this.topY + (this.offset * 2) );
     
     // === Vertical Lines ===
-    this.scribble.scribbleLine( topX + offset, topY, topX + offset, topY + width );
-    this.scribble.scribbleLine( topX + (offset * 2), topY, topX + (offset * 2), topY + width );
+    this.scribble.scribbleLine( this.topX + this.offset, this.topY, this.topX + this.offset, this.topY + this.width );
+    this.scribble.scribbleLine( this.topX + (this.offset * 2), this.topY, this.topX + (this.offset * 2), this.topY + this.width );
 }
 
 Section.prototype.color = function() {
@@ -79,9 +100,12 @@ Section.prototype.colorOne = function() {
 
 Section.prototype.checkCells = function(x, y, game){
     if (!this.isPlayable || this.isWon) return;
+    console.log("Checking cells of section");
     for (let i = 0; i < 3; i++) {
         for (let j = 0; j < 3; j++) {
-            if (this.cells[i][j].contains(x, y, game.halfWidth, game.halfHeight)) {
+            console.log("Checking if cursor is in section cell");
+            if (this.cells[i][j].contains(x, y)) {
+                console.log("Mouse clicked in cell section");
                 this.cells[i][j].reveal(game);
 
                 if (game.movePlayed){

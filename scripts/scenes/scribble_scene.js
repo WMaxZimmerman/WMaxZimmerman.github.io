@@ -24,6 +24,7 @@ function ScribbleTest() {
     this.update = function() {
         document.body.style.cursor = "default";
         this.sceneSwitch.update();
+        this.game.update();
     }
 
     this.draw = function() {
