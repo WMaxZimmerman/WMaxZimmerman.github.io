@@ -51,9 +51,9 @@ function UltimateTicTacToe() {
     }
 
     this.update = function() {
-        let yOffset = (windowHeight * .12);
+        let yOffset = 100;//(windowHeight * .12);
         let xOffset =  (windowWidth * .04);
-        this.w = ((windowWidth - xOffset) * .65);
+        this.w = (windowWidth * .90);
         this.halfWidth = (windowWidth / 2) - this.w;
         this.halfHeight = (windowHeight / 2) - this.w;
         let tempW = (windowHeight * .65);
