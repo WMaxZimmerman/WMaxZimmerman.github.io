@@ -24,15 +24,17 @@ Cell.prototype.update = function(topX, topY, width) {
     this.topY = topY;
     this.centerX = this.topX + (this.width / 2);
     this.centerY = this.topY + (this.width / 2);
-    this.radius = (this.width / 2) * .8;
+    this.radius = (this.width / 2) * 1.3;
 }
 
 Cell.prototype.show = function(xOffset, yOffset) {
     stroke(0);
     noFill();
     // rect(this.x + xOffset, this.y + yOffset, this.w, this.w);
-    fill(this.color);
-    ellipse(this.centerX, this.centerY, this.radius);
+    if (this.revealed === true) {
+        fill(this.color);
+        ellipse(this.centerX, this.centerY, this.radius);   
+    }
 }
 
 Cell.prototype.contains = function(x, y) {

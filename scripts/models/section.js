@@ -67,7 +67,7 @@ Section.prototype.show = function(xOffset, yOffset) {
     if (this.isWon === true){
         let centerX = this.topX + (this.width / 2);
         let centerY = this.topY + (this.width / 2);
-        let radius = (this.width / 2) * .8;
+        let radius = (this.width / 2) * 1.6;
         fill(this.color());
         
         ellipse(centerX, centerY, radius);
