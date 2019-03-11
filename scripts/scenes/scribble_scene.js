@@ -26,7 +26,14 @@ function ScribbleTest() {
         w = 100;
         h = 40;        
         let newGame = new ScribbleButton(x, y, w, h, 'Game', self.createGame);
-        self.objectMap.set('newGame', newGame);        
+        self.objectMap.set('newGame', newGame);
+
+        x = (windowWidth * .04);
+        y = (windowHeight * .1);
+        let lineOffset = (windowHeight * .05);
+        w = windowWidth - x;
+        let paragraph = new ScribbleParagraph(x, y, w, lineOffset, "pages/about.txt")
+        self.objectMap.set('paragraph', paragraph);
     }
 
     self.update = function() {
@@ -72,6 +79,7 @@ function ScribbleTest() {
     }
 
     self.createGame = function() {
+        self.objectMap.delete('paragraph');
         let game = new UltimateTicTacToe();
         game.setup();
         self.objectMap.set('game', game);
