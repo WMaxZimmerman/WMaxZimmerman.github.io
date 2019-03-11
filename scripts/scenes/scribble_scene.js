@@ -32,7 +32,7 @@ function ScribbleTest() {
         y = (windowHeight * .1);
         let lineOffset = (windowHeight * .05);
         w = windowWidth - x;
-        let paragraph = new ScribbleParagraph(x, y, w, lineOffset, "pages/about.txt")
+        let paragraph = new ScribbleParagraph(x, y, w, lineOffset, "pages/about.org")
         self.objectMap.set('paragraph', paragraph);
     }
 
