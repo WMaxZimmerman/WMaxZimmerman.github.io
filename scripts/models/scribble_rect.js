@@ -31,9 +31,8 @@ ScribbleRect.prototype.draw = function() {
         stroke(239, 243, 247); // White
         let textWeight = 60;
 
-        if (windowWidth < 800) {
-            textWeight = 50;
-        }
+        if (windowWidth < 1800) textWeight = 50;
+        if (windowWidth < 800) textWeight = 40;
         
         textSize(textWeight);
         textAlign(CENTER, CENTER);
