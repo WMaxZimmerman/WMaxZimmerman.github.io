@@ -35,14 +35,16 @@ ScribbleParagraph.prototype.draw = function() {
 }
 
 ScribbleParagraph.prototype.splitLines = function(textWeight) {
-    console.log("line count: " + this.fileLines.length);
     let charactersPerLine = Math.floor(this.width / (textWeight / 2));
+    
+    console.log("width: " + this.width);
+    console.log("chars per line: " + charactersPerLine);
+    
     let lines = [];
 
     for (let x = 0; x < this.fileLines.length; x++) {
         let fileLine = this.fileLines[x];
         let line = "";
-        let isWord = true;
         let word = "";
         let charsSinceLine = 0;
         
@@ -55,6 +57,7 @@ ScribbleParagraph.prototype.splitLines = function(textWeight) {
                     charsSinceLine = 0;
                     lines.push(line);
                     line = word + character;
+                    charsSinceLine += word.length + 1;
                     word = "";
                 } else if (charsSinceLine + word.length <= charactersPerLine) {
                     charsSinceLine += word.length + 1;
