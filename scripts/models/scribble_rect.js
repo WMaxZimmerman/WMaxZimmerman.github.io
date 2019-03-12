@@ -50,12 +50,13 @@ ScribbleRect.prototype.fillRect = function(x, y, w, h) {
     let ybottom = this.y + (this.height / 2);
     
     // reduce the sizes to fit in the rect
+    let margin = 5
     if ( ytop > ybottom ) {
-        ytop    -= 5;
-        ybottom += 5;
+        ytop    -= margin;
+        ybottom += margin;
     } else {
-        ytop    += 5;
-        ybottom -= 5;
+        ytop    += margin;
+        ybottom -= margin;
     }
     
     // the x coordinates of the border points of the hachure
