@@ -29,10 +29,12 @@ ScribbleRect.prototype.draw = function() {
         // textFont('fonts/BrookeS8.ttf');
         let length = this.text.length;
         stroke(239, 243, 247); // White
-        let textWeight = 60;
+        let textWeight = 100;
 
+        if (windowWidth < 2000) textWeight = 60;
         if (windowWidth < 1800) textWeight = 50;
-        if (windowWidth < 800) textWeight = 40;
+        if (windowWidth < 1100) textWeight = 40;
+        if (windowWidth < 800) textWeight = 32;
         
         textSize(textWeight);
         textAlign(CENTER, CENTER);
