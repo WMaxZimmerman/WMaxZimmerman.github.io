@@ -34,7 +34,7 @@ ScribbleButton.prototype.draw = function() {
         let textWeight = 32;
         textSize(textWeight);
         textAlign(CENTER, CENTER);
-        text(this.text, this.x, this.y - (textWeight / 4), this.w);   
+        text(this.text, this.x, this.y - (textWeight / 8), this.w);   
     }
 }
 

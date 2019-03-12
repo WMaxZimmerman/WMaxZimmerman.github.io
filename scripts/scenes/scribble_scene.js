@@ -8,9 +8,9 @@ function ScribbleTest() {
         loadFont('fonts/scribble_box_demo.ttf');
 
         let x = (windowWidth / 2);
-        let y = 50;
+        let y = windowHeight * .05;
         let w = windowWidth * .9;
-        let h = 90;
+        let h = windowHeight * .1;
         let banner = new ScribbleRect(x, y, w, h, 'W Max Zimmerman');
         self.objectMap.set('banner', banner);        
 

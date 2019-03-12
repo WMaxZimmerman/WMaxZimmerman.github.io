@@ -1,6 +1,6 @@
 function ScribbleParagraph(x, y, w, lineOffset, inputFile){
     // === IO ===
-    this.font = loadFont('fonts/IndieFlower.ttf');
+    this.font = loadFont('fonts/Gaegu-Regular.ttf');
     this.fileLines = loadStrings(inputFile);
     
     // === Position Variables ===
@@ -25,7 +25,7 @@ ScribbleParagraph.prototype.draw = function() {
 
     let lines = this.splitLines(textWeight);
     for (let i = 0; i < lines.length; i++) {
-        let lineY = this.y + (this.lineOffset * (i + 1)) + (textWeight / 3);
+        let lineY = this.y + (this.lineOffset * (i + 1)) + (textWeight / 8);
         let lineX = this.x + (textWeight / 2)
         textSize(textWeight);
         textAlign(LEFT, BOTTOM);
@@ -36,20 +36,36 @@ ScribbleParagraph.prototype.draw = function() {
 
 ScribbleParagraph.prototype.splitLines = function(textWeight) {
     console.log("line count: " + this.fileLines.length);
-    let charactersPerLine = Math.floor(this.width / (textWeight / 2.3));
+    let charactersPerLine = Math.floor(this.width / (textWeight / 2));
     let lines = [];
 
     for (let x = 0; x < this.fileLines.length; x++) {
         let fileLine = this.fileLines[x];
         let line = "";
+        let isWord = true;
+        let word = "";
+        let charsSinceLine = 0;
         
         for (let i = 0; i < fileLine.length; i++) {
-            line = line + fileLine[i];
+            let character = fileLine[i];
+            if (character != " ") {
+                word += character;
+            } else {
+                if (charsSinceLine + word.length > charactersPerLine) {
+                    charsSinceLine = 0;
+                    lines.push(line);
+                    line = word + character;
+                    word = "";
+                } else if (charsSinceLine + word.length <= charactersPerLine) {
+                    charsSinceLine += word.length + 1;
+                    line += word + character;
+                    word = "";
+                }
+            }
             
-            let charCount = i + 1;
-            if ((charCount % charactersPerLine) === 0 || charCount === fileLine.length) {
+            if (i + 1 === fileLine.length) {
+                line += word;
                 lines.push(line);
-                line = "";
             }
         }
     }
