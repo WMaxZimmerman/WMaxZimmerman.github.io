@@ -1,0 +1,4 @@
+#+TITLE: W Max Zimmerman
+
+* Presentations
+- [[file:bin/presentations/text-is-power.html][Text Is Power]]
