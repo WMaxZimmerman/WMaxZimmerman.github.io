@@ -5,7 +5,7 @@ do
     buildFile="../../bin/presentations/$name.html"
     if [ ! -f $buildFile ] || [ $f -nt $buildFile ]; then
 	echo "building $name"
-        pandoc $f  -t revealjs -s -o $buildFile
+        pandoc -s $f -c "reveal.js/css/theme/moon.css" -t revealjs -o $buildFile -V "revealjs-url=https://revealjs.com"
     else
 	echo "skipping $name"
     fi

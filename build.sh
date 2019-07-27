@@ -1,6 +1,6 @@
 echo "==== Building Index ===="
 
-pandoc index.org  -t html -s -o index.html
+pandoc -s index.org -c main.css -o index.html
 
 pushd src > /dev/null
 ./build.sh
