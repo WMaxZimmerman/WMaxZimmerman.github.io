@@ -7,7 +7,15 @@ do
     buildFile="../../articles/$name.html"
     if [ ! -f $buildFile ] || [ $f -nt $buildFile ]; then
 	echo "building $name"
-        pandoc -s $f -c "../main.css" -t html -o $buildFile
+
+	cp $f $name-temp.org
+
+	sed -i 's/:blog://g' $name-temp.org
+	sed -i 's/:slideshow:/:noexport:/g' $name-temp.org
+	
+        pandoc -s $name-temp.org -c "../main.css" -t html -o $buildFile
+
+	rm $name-temp.org
     else
 	echo "skipping $name"
     fi
@@ -22,7 +30,15 @@ do
     buildFile="../../presentations/$name.html"
     if [ ! -f $buildFile ] || [ $f -nt $buildFile ]; then
 	echo "building $name"
-        pandoc -s $f -c "reveal.js/css/theme/moon.css" -t revealjs -o $buildFile -V "revealjs-url=https://revealjs.com"
+
+	cp $f $name-temp.org
+
+	sed -i 's/:slideshow://g' $name-temp.org
+	sed -i 's/:blog:/:noexport:/g' $name-temp.org
+	
+        pandoc -s $name-temp.org -c "reveal.js/css/theme/moon.css" -t revealjs -o $buildFile -V "revealjs-url=https://revealjs.com" --slide-level 2
+
+	rm $name-temp.org
     else
 	echo "skipping $name"
     fi

@@ -15,14 +15,14 @@
 ** Solution
 Stop using bulky tools to write your documentation and just write in plain text
 * What Do You Mean?
-** Let Me Explain
+** Let Me Explain                                                 :slideshow:
 - Don't Use
   - Visio
   - Confluence
   - Powerpoint
 - Do Use
   - Your favorite text editor
-*** note :noexport:
+** Let Me Explain                                                  :blog:
 Instead of using tools such as Visio, Confluence, and Powerpoint we can simply 
 write our documentation in a text file and then run a program to generate the 
 documents that we are after
@@ -32,7 +32,7 @@ documents that we are after
 - Images are very difficult to search
 - Images are very difficult to edit
 - No one wants your email of that photo you took
-*** note :noexport:
+** Problem                                                         :blog:
 All too often I have seen people taking photos of whiteboard trying to capture
 and document a diagram or graph that was written during a design discussion.
 ** Solution
@@ -47,14 +47,14 @@ and document a diagram or graph that was written during a design discussion.
   @enduml
   #+END_VERSE
 - [[file:../diagrams/test.png]]
-*** note :noexport:
-PlantUML support many different types of diagrams and graphs. This is just a 
+** Note                                                                :blog:
+PlantUML supports many different types of diagrams and graphs. This is just a 
 very simple example of what it can do.
 * Presentations
-** Problem
+** Problem :slideshow:
 - People spend far too much time creating presentations
 - Presentations often look the same due to branding
-*** note :noexport:
+** Problem                                                             :blog:
 I have seen coworkers spend half a day or more (I've seen up to a week) working on a presentation
 for a meeting that is coming up. This is simply too much time. This is all content that the person
 knows. They are end up stressing about trying to make a nice presentation and waste valuable time.
