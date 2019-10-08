@@ -19,7 +19,8 @@ do
     then
 	x="$(echo $name | sed 's/-/ /g')"
 	x="$(echo $x | sed 's/_/: /g')"
-	echo "- [[file:articles/$name.html][$x]]([[file:presentations/$name.html][slideshow]])" >> index.org
+	echo "** $x" >> index.org
+	echo "[[file:articles/$name.html][blog]] / [[file:presentations/$name.html][presentation]]" >> index.org
     fi
     
 done
