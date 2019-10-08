@@ -1,10 +1,5 @@
 #+TITLE: W Max Zimmerman
 
-* Presentations
-A collection of presentations I have and/or would like to give.
-- [[file:bin/presentations/fight-flight-flee.html][Flight Fight Flee]]
-- [[file:bin/presentations/PersonalWrokflows_HowToBeMoreEfficient.html][Personal Wrokflows]]
-- [[file:bin/presentations/Stoicism_TheAgilePhilosophy.html][Stocism: The Agile Philosophy]]
-- [[file:bin/presentations/The-elephant-in-the-room.html][The Elephant in the Room]]
-* Diagrams
-** [[file:bin/diagrams/test.png][Test]]
+* Blogs
+A collection of presentations I have and/or would like to give
+- [[file:bin/articles/*.html][articles bin diagrams favicon.ico index.html index.org main.css presentations src]]([[file:bin/presentations/*.html][slideshow]])

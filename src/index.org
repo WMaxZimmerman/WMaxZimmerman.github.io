@@ -1,0 +1,9 @@
+#+TITLE: W Max Zimmerman
+
+* Blogs
+A collection of presentations I have and/or would like to give
+- [[file:articles/fight-flight-flee.html][fight flight flee]]([[file:presentations/fight-flight-flee.html][slideshow]])
+- [[file:articles/personal-workflows_how-to-be-more-effecient.html][personal workflows: how to be more effecient]]([[file:presentations/personal-workflows_how-to-be-more-effecient.html][slideshow]])
+- [[file:articles/stoicism_the-agile-philosophy.html][stoicism: the agile philosophy]]([[file:presentations/stoicism_the-agile-philosophy.html][slideshow]])
+- [[file:articles/text-is-power.html][text is power]]([[file:presentations/text-is-power.html][slideshow]])
+- [[file:articles/the-elephant-in-the-room.html][the elephant in the room]]([[file:presentations/the-elephant-in-the-room.html][slideshow]])

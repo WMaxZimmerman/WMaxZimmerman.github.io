@@ -7,8 +7,8 @@ html * {
  * GLOBAL STYLES
  *********************************************/
 body {
-  background: #002b36;
-  background-color: #002b36;
+  background: #323346;
+  background-color: #323346;
 }
 
 ::selection {
@@ -27,9 +27,16 @@ body {
  * HEADERS
  *********************************************/
 header {
+    background-color: #5b5c6b;
     text-align: center;
-    text-decoration: underline;
     margin-bottom: 1em;
+}
+
+.title {
+    text-decoration: underline;
+}
+
+header p {
     background-color: #5b5c6b;
 }
 
@@ -53,6 +60,7 @@ h6 {
 h1 {
     font-size: 3.77em;
     margin-top: .1em;
+    text-decoration: underline;
 }
 
 h2 {
@@ -67,12 +75,15 @@ h4 {
     font-size: 1em;
 }
 
+p {
+    color: #eee8d5;
+}
+
 /*********************************************
  * PARAGRAPHS
  *********************************************/
 
 p {
-    background-color: #eee8d5;
     margin-top: unset;
 }
 

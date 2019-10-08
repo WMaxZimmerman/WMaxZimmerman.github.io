@@ -1,5 +1,5 @@
 #!/bin/sh
 
 dir=$(git rev-parse --show-toplevel)
-$dir/build.sh
+$dir/src/build.sh
 git add -A
