@@ -13,8 +13,8 @@ do
 	sed -i 's/:blog://g' $name-temp.org
 	sed -i 's/:slideshow:/:noexport:/g' $name-temp.org
 	
-        pandoc -s $name-temp.org -c "../main.css" -t html -o $buildFile
-
+        pandoc -s $name-temp.org -c "../main.css" -t html5 -o $buildFile --highlight-style=haddock
+	
 	rm $name-temp.org
     else
 	echo "skipping $name"

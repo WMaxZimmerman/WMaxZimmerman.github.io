@@ -1,7 +1,7 @@
 #+TITLE: Text is Power
-#+DATE: <2019-02-22>
+#+DATE: 2019-02-22
 #+AUTHOR: W Max Zimmerman
-#+EMAIL: william.m.zimmerman+pres@gmail.com
+#+EMAIL: william.m.zimmerman@gmail.com
 #+LANG: en
 #+EXCLUDE_TAGS: noexport
 
@@ -79,8 +79,8 @@ knows. They are end up stressing about trying to make a nice presentation and wa
 - Deploy documentation artifacts
 - Build of check in using a pipeline
 - Push files to third parties on update
-* Conclusion
-** Resources
+* Conclusion :slideshow:
+** Resources 
 - [[https://pandoc.org/][Pandoc]]
 - [[https://www.uml.org/what-is-uml.htm][UML]]
 - [[https://github.com/hakimel/reveal.js/][Reveal.js]]

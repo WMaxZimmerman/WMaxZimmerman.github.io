@@ -1,5 +1,5 @@
 #+TITLE: The Elephant in the Room
-#+DATE: <2019-02-22>
+#+DATE: 2019-02-22
 #+AUTHOR: W Max Zimmerman
 #+EMAIL: william.m.zimmerman+pres@gmail.com
 #+LANG: en
