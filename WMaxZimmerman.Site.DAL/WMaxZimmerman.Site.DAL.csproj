@@ -1,0 +1,38 @@
+
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <None Remove="resources\articles\fight-flight-flee.org" />
+    <None Remove="resources\articles\personal-workflows_how-to-be-more-effecient.org" />
+    <None Remove="resources\articles\stoicism_the-agile-philosophy.org" />
+    <None Remove="resources\articles\text-is-power.org" />
+    <None Remove="resources\articles\the-elephant-in-the-room.org" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="resources\articles\fight-flight-flee.org">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\articles\personal-workflows_how-to-be-more-effecient.org">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\articles\stoicism_the-agile-philosophy.org">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\articles\text-is-power.org">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\articles\the-elephant-in-the-room.org">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WMaxZimmerman.Site.Shared\WMaxZimmerman.Site.Shared.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+</Project>

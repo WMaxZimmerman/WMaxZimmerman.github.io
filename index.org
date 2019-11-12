@@ -1,5 +1,0 @@
-#+TITLE: W Max Zimmerman
-
-* Blogs
-A collection of presentations I have and/or would like to give
-- [[file:bin/articles/*.html][articles bin diagrams favicon.ico index.html index.org main.css presentations src]]([[file:bin/presentations/*.html][slideshow]])
