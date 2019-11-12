@@ -1,3 +1,7 @@
+pushd WMaxZimmerman.Site.DAL/resources/articles
+./build.sh
+popd
+
 ./infra/scripts/publish-target.sh "target"
 
 ./infra/scripts/github-publish.sh "target"
