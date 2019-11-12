@@ -1,10 +1,13 @@
 ﻿@page "/"
 @using WMaxZimmerman.Site.ApplicationCore.Services;
 
-<h1>Hello, world!</h1>
+<h1>Welcome to my site!</h1>
 
-Welcome to your new app.
+Here are some presentations I am working on:
 
-@ExampleService.HelloWorld()
-
-<SurveyPrompt Title="How is Blazor working for you?" />
+<ul>
+    @foreach (var link in new ResourceService().GetPresentationLinks())
+    {
+        <li><a href="@link.Location">@link.Title</a></li>
+    }
+</ul>
