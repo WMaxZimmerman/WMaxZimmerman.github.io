@@ -1,4 +1,4 @@
-pushd WMaxZimmerman.Site.DAL/resources/articles
+pushd resources
 ./build.sh
 popd
 

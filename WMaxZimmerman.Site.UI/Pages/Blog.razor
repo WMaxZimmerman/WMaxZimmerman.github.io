@@ -1,0 +1,23 @@
+@page "/blogs"
+@page "/blogs/{blogTitle}"
+@using WMaxZimmerman.Site.ApplicationCore.Services;
+@using System.Linq;
+
+@code {
+    [Parameter]
+    public string BlogTitle { get; set; }
+}
+
+@if(BlogTitle != null){
+    @foreach (var line in new ResourceService().GetBlogContents(BlogTitle))
+    {
+        @((MarkupString)line)
+    }
+} else {
+    <ul>
+    @foreach (var link in new ResourceService().GetBlogNames())
+    {
+        <li><a href="blogs/@link.Location">@link.Title</a></li>
+    }
+    </ul>
+}

@@ -26,6 +26,7 @@ namespace WMaxZimmerman.Site.DAL.Repositories
 
         public IEnumerable<string> GetResourceFileLines(string filename)
         {
+            System.Console.WriteLine(filename);
             using (var stream = _assembly.GetManifestResourceStream(filename))
             {
                 using (var sr = new StreamReader(stream))

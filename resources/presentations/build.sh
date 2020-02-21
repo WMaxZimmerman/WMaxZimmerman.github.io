@@ -1,5 +1,5 @@
 echo "==== Building Presentations ===="
-buildDir="../../../WMaxZimmerman.Site.UI/wwwroot/presentations"
+buildDir="../../WMaxZimmerman.Site.DAL/resources/presentations"
 mkdir -p $buildDir
 
 for f in *.org
@@ -22,43 +22,23 @@ do
     fi
 done
 
-
-echo "==== Building Embedded Resources ===="
-buildDir="../../WMaxZimmerman.Site.DAL.csproj"
-
-echo "" > $buildDir
-echo "<Project Sdk=\"Microsoft.NET.Sdk\">" >> $buildDir
-echo "" >> $buildDir
+buildDir="../../WMaxZimmerman.Site.DAL/WMaxZimmerman.Site.DAL.csproj"
 echo "  <ItemGroup>" >> $buildDir
-
 for f in *.org
 do
     name=$(basename $f | cut -f 1 -d '.')
-
-    echo "    <None Remove=\"resources\\articles\\$name.org\" />" >> $buildDir
+    echo "    <None Remove=\"resources\\presentations\\$name.html\" />" >> $buildDir
 done
-
 echo "  </ItemGroup>" >> $buildDir
+
 echo "" >> $buildDir
 echo "  <ItemGroup>" >> $buildDir
-
 for f in *.org
 do
     name=$(basename $f | cut -f 1 -d '.')
-
-    echo "    <EmbeddedResource Include=\"resources\\articles\\$name.org\">" >> $buildDir
+    echo "    <EmbeddedResource Include=\"resources\\presentations\\$name.html\">" >> $buildDir
     echo "      <CopyToOutputDirectory>Always</CopyToOutputDirectory>" >> $buildDir
     echo "    </EmbeddedResource>" >> $buildDir
 done
-
 echo "  </ItemGroup>" >> $buildDir
 echo "" >> $buildDir
-echo "  <ItemGroup>" >> $buildDir
-echo "    <ProjectReference Include=\"..\\WMaxZimmerman.Site.Shared\\WMaxZimmerman.Site.Shared.csproj\" />" >> $buildDir
-echo "  </ItemGroup>" >> $buildDir
-echo "" >> $buildDir
-echo "  <PropertyGroup>" >> $buildDir
-echo "    <TargetFramework>netstandard2.0</TargetFramework>" >> $buildDir
-echo "  </PropertyGroup>" >> $buildDir
-echo "" >> $buildDir
-echo "</Project>" >> $buildDir
