@@ -63,6 +63,16 @@
     </EmbeddedResource>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="resources\misc\phrases.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="resources\misc\phrases.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
 
   <ItemGroup>
     <ProjectReference Include="..\WMaxZimmerman.Site.Shared\WMaxZimmerman.Site.Shared.csproj" />

@@ -15,6 +15,7 @@ echo "" >> $csprojFile
 buildDirectory "blogs"
 buildDirectory "presentations"
 buildDirectory "diagrams"
+buildDirectory "misc"
 
 echo "" >> $csprojFile
 echo "  <ItemGroup>" >> $csprojFile

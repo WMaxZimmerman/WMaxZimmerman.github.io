@@ -1,0 +1,23 @@
+@page "/misc"
+@page "/misc/{miscTitle}"
+@using WMaxZimmerman.Site.ApplicationCore.Services;
+@using System.Linq;
+
+@code {
+    [Parameter]
+    public string MiscTitle { get; set; }
+}
+
+@if(MiscTitle != null){
+    @foreach (var line in new ResourceService().GetMiscContents(MiscTitle))
+    {
+        @((MarkupString)line)
+    }
+} else {
+    <ul>
+    @foreach (var link in new ResourceService().GetMiscNames())
+    {
+        <li><a href="phrases/@link.Location">@link.Title</a></li>
+    }
+    </ul>
+}

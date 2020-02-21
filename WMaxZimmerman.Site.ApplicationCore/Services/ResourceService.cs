@@ -12,6 +12,8 @@ namespace WMaxZimmerman.Site.ApplicationCore.Services
         IEnumerable<string> GetBlogContents(string blog);
         IEnumerable<string> GetPresentationContents(string presentation);
         IEnumerable<Link> GetBlogNames();
+        IEnumerable<Link> GetMiscNames();
+        IEnumerable<string> GetMiscContents(string misc);
     }
     
     public class ResourceService: IResourceService
@@ -65,6 +67,26 @@ namespace WMaxZimmerman.Site.ApplicationCore.Services
         public IEnumerable<string> GetPresentationContents(string presentation)
         {
             var resourcesName = $"WMaxZimmerman.Site.DAL.resources.presentations.{presentation}.html";
+
+            return _repository.GetResourceFileLines(resourcesName);
+        }
+
+        public IEnumerable<Link> GetMiscNames()
+        {
+            var blogPrefix = "WMaxZimmerman.Site.DAL.resources.misc.";
+            var resources = _repository.GetResourceNames().Where(r => r.Contains(blogPrefix));
+
+            return resources.Select(r => r.Replace(blogPrefix, ""))
+                .Select(r => new Link
+                {
+                    Title = r.Replace(".html", "").Replace("-", " ").Replace("_", ": "),
+                    Location = r.Replace(".html", "")
+                });
+        }
+
+        public IEnumerable<string> GetMiscContents(string misc)
+        {
+            var resourcesName = $"WMaxZimmerman.Site.DAL.resources.misc.{misc}.html";
 
             return _repository.GetResourceFileLines(resourcesName);
         }
