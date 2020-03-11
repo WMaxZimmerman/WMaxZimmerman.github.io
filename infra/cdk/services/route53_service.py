@@ -1,5 +1,5 @@
 from aws_cdk.aws_route53 import (
-    PublicHostedZone,
+    HostedZone,
     ARecord,
     AaaaRecord,
     RecordTarget
@@ -9,10 +9,10 @@ from aws_cdk.aws_route53_targets import BucketWebsiteTarget
 
 class Route53Service:
     def create_route53(stack, domain, bucket):
-        hosted_zone = PublicHostedZone(
+        hosted_zone = HostedZone.fromLookup(
             stack,
-            f'PersonalSiteHostedZone',
-            zone_name=domain
+            'MyZone',
+            domain_name=domain
         )
 
         ARecord(
