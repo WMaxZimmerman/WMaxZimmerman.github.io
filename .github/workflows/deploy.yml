@@ -26,6 +26,9 @@ jobs:
       with:
         python-version: 3.7
 
+    - name: Set Run Permissions for Scripts
+      run: sudo chmod +x ./infra/scripts/*
+
     - name: Run a one-line script
       run: ./infra/scripts/publish-target.sh ./public
       
