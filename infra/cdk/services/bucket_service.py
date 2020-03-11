@@ -18,7 +18,7 @@ class BucketService:
         BucketDeployment(
             stack,
             f'PersonalSite{bucket_name}DeployBucket',
-            sources=[Source.asset('../../site/public')],
+            sources=[Source.asset('../../public/WMaxZimmerman.Site.UI/dist')],
             destination_bucket=bucket
         )
 
