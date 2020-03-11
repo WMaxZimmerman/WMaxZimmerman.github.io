@@ -1,0 +1,19 @@
+#+TITLE: Fight Flight Flee
+#+DATE: 2019-02-22
+#+AUTHOR: W Max Zimmerman
+#+EMAIL: william.m.zimmerman+pres@gmail.com
+#+LANG: en
+#+EXCLUDE_TAGS: noexport
+
+* Introduction
+** A simple slide
+This slide consists of some text with a number of bullet points:
+
+- the first, very @important@, point!
+- the previous point shows the use of the special markup which
+translates to the Beamer specific /alert/ command for highlighting
+text.
+
+The above list could be numbered or any other type of list and may
+include sub-lists.
+

@@ -1,0 +1,6 @@
+#+TITLE: Stoicism
+The Agile Philosophy
+
+* What is Stoicism?
+* Similarities
+** Daily/Weekly Retrospectives

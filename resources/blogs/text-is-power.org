@@ -1,0 +1,88 @@
+#+TITLE: Text is Power
+#+DATE: 2019-02-22
+#+AUTHOR: W Max Zimmerman
+#+EMAIL: william.m.zimmerman@gmail.com
+#+LANG: en
+#+EXCLUDE_TAGS: noexport
+
+* Intro
+** Problem
+- Time is wasted using tools to write documentation
+- The documentation people write is difficult to 
+  - search
+  - modify
+  - track
+** Solution
+Stop using bulky tools to write your documentation and just write in plain text
+* What Do You Mean?
+** Let Me Explain                                                 :slideshow:
+- Don't Use
+  - Visio
+  - Confluence
+  - Powerpoint
+- Do Use
+  - Your favorite text editor
+** Let Me Explain                                                  :blog:
+Instead of using tools such as Visio, Confluence, and Powerpoint we can simply 
+write our documentation in a text file and then run a program to generate the 
+documents that we are after
+* Diagrams
+** Problem
+- People take pictures of whiteboards
+- Images are very difficult to search
+- Images are very difficult to edit
+- No one wants your email of that photo you took
+** Problem                                                         :blog:
+All too often I have seen people taking photos of whiteboard trying to capture
+and document a diagram or graph that was written during a design discussion.
+** Solution
+- Write your diagrams in plain text using [[https://www.uml.org/what-is-uml.htm][UML]]
+- Generate image using [[http://plantuml.com/][PlantUML]]
+** Example
+- 
+  #+BEGIN_VERSE
+  @startuml
+  [one] --> [two]
+  [two] --> [three]
+  @enduml
+  #+END_VERSE
+- [[file:../diagrams/test.png]]
+** Note                                                                :blog:
+PlantUML supports many different types of diagrams and graphs. This is just a 
+very simple example of what it can do.
+* Presentations
+** Problem :slideshow:
+- People spend far too much time creating presentations
+- Presentations often look the same due to branding
+** Problem                                                             :blog:
+I have seen coworkers spend half a day or more (I've seen up to a week) working on a presentation
+for a meeting that is coming up. This is simply too much time. This is all content that the person
+knows. They are end up stressing about trying to make a nice presentation and waste valuable time.
+** Solution
+- Open up that editor and jot your notes in your preferred markup language
+- Use [[https://pandoc.org/][Pandoc]] to import your file and export a [[https://github.com/hakimel/reveal.js/][Reveal.js]] file
+** Example
+- [[file:../text-is-power.org][this]]
+- This presentation was generated
+* But what does that really get us?
+** Searching
+- grep
+** Version Control
+- git
+** Easy Maintenance
+- Any Editor
+** Automation
+- Parse
+- Convert
+* Documentation DevOps
+** DevOps isn't just for code
+- Deploy documentation artifacts
+- Build of check in using a pipeline
+- Push files to third parties on update
+* Conclusion :slideshow:
+** Resources 
+- [[https://pandoc.org/][Pandoc]]
+- [[https://www.uml.org/what-is-uml.htm][UML]]
+- [[https://github.com/hakimel/reveal.js/][Reveal.js]]
+- [[http://plantuml.com/][PlantUML]]
+** Questions?

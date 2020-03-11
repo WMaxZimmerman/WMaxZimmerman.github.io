@@ -1,0 +1,21 @@
+*Personal Workflows - How to be more efficient*
+
+* What is a Work Flow
+A work flow is series of steps that are taken
+to preform tasks
+* Pros
+** Streamlined Process
+** Becomes more about the work then how to do the work
+* Cons
+** Pairing can be tricky
+** Not everyone will have the same work flow
+* Tools
+** Emacs
+*** Org-Mode
+** Launchy
+** CLCL
+** CMDER
+*** Bash Aliases
+** JQ
+** PlantUML
+** Visual Studio

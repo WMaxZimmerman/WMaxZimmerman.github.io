@@ -1,0 +1,6 @@
+@startuml
+
+[one] --> [two]
+[two] --> [three]
+
+@enduml
