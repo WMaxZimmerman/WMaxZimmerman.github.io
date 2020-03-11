@@ -9,7 +9,7 @@ from aws_cdk.aws_route53_targets import BucketWebsiteTarget
 
 class Route53Service:
     def create_route53(stack, domain, bucket):
-        hosted_zone = HostedZone.fromLookup(
+        hosted_zone = HostedZone.from_lookup(
             stack,
             'MyZone',
             domain_name=domain
