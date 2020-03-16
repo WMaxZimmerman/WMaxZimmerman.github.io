@@ -1,0 +1,79 @@
+<h1 id="intro">Intro</h1>
+<h2 id="problem">Problem</h2>
+<ul>
+<li>Time is wasted using tools to write documentation</li>
+<li>The documentation people write is difficult to
+<ul>
+<li>search</li>
+<li>modify</li>
+<li>track</li>
+</ul></li>
+</ul>
+<h2 id="solution">Solution</h2>
+<p>Stop using bulky tools to write your documentation and just write in plain text</p>
+<h1 id="what-do-you-mean">What Do You Mean?</h1>
+<h2 id="let-me-explain">Let Me Explain</h2>
+<p>Instead of using tools such as Visio, Confluence, and Powerpoint we can simply write our documentation in a text file and then run a program to generate the documents that we are after</p>
+<h1 id="diagrams">Diagrams</h1>
+<h2 id="problem-1">Problem</h2>
+<ul>
+<li>People take pictures of whiteboards</li>
+<li>Images are very difficult to search</li>
+<li>Images are very difficult to edit</li>
+<li>No one wants your email of that photo you took</li>
+</ul>
+<h2 id="problem-2">Problem</h2>
+<p>All too often I have seen people taking photos of whiteboard trying to capture and document a diagram or graph that was written during a design discussion.</p>
+<h2 id="solution-1">Solution</h2>
+<ul>
+<li>Write your diagrams in plain text using <a href="https://www.uml.org/what-is-uml.htm">UML</a></li>
+<li>Generate image using <a href="http://plantuml.com/">PlantUML</a></li>
+</ul>
+<h2 id="example">Example</h2>
+<ul>
+<li><div class="line-block"><span class="citation" data-cites="startuml">@startuml</span><br />
+[one] –&gt; [two]<br />
+[two] –&gt; [three]<br />
+<span class="citation" data-cites="enduml">@enduml</span></div></li>
+<li><img src="../diagrams/test.png" /></li>
+</ul>
+<h2 id="note">Note</h2>
+<p>PlantUML supports many different types of diagrams and graphs. This is just a very simple example of what it can do.</p>
+<h1 id="presentations">Presentations</h1>
+<h2 id="problem-3">Problem</h2>
+<p>I have seen coworkers spend half a day or more (I've seen up to a week) working on a presentation for a meeting that is coming up. This is simply too much time. This is all content that the person knows. They are end up stressing about trying to make a nice presentation and waste valuable time.</p>
+<h2 id="solution-2">Solution</h2>
+<ul>
+<li>Open up that editor and jot your notes in your preferred markup language</li>
+<li>Use <a href="https://pandoc.org/">Pandoc</a> to import your file and export a <a href="https://github.com/hakimel/reveal.js/">Reveal.js</a> file</li>
+</ul>
+<h2 id="example-1">Example</h2>
+<ul>
+<li><a href="../text-is-power.org">this</a></li>
+<li>This presentation was generated</li>
+</ul>
+<h1 id="but-what-does-that-really-get-us">But what does that really get us?</h1>
+<h2 id="searching">Searching</h2>
+<ul>
+<li>grep</li>
+</ul>
+<h2 id="version-control">Version Control</h2>
+<ul>
+<li>git</li>
+</ul>
+<h2 id="easy-maintenance">Easy Maintenance</h2>
+<ul>
+<li>Any Editor</li>
+</ul>
+<h2 id="automation">Automation</h2>
+<ul>
+<li>Parse</li>
+<li>Convert</li>
+</ul>
+<h1 id="documentation-devops">Documentation DevOps</h1>
+<h2 id="devops-isnt-just-for-code">DevOps isn't just for code</h2>
+<ul>
+<li>Deploy documentation artifacts</li>
+<li>Build of check in using a pipeline</li>
+<li>Push files to third parties on update</li>
+</ul>

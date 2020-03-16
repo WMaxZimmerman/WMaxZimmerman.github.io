@@ -1,0 +1,82 @@
+  <ItemGroup>
+    <None Remove="resources\blogs\fight-flight-flee.html" />
+    <None Remove="resources\blogs\personal-workflows_how-to-be-more-effecient.html" />
+    <None Remove="resources\blogs\stoicism_the-agile-philosophy.html" />
+    <None Remove="resources\blogs\text-is-power.html" />
+    <None Remove="resources\blogs\the-elephant-in-the-room.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="resources\blogs\fight-flight-flee.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\blogs\personal-workflows_how-to-be-more-effecient.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\blogs\stoicism_the-agile-philosophy.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\blogs\text-is-power.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\blogs\the-elephant-in-the-room.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="resources\presentations\fight-flight-flee.html" />
+    <None Remove="resources\presentations\personal-workflows_how-to-be-more-effecient.html" />
+    <None Remove="resources\presentations\stoicism_the-agile-philosophy.html" />
+    <None Remove="resources\presentations\text-is-power.html" />
+    <None Remove="resources\presentations\the-elephant-in-the-room.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="resources\presentations\fight-flight-flee.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\presentations\personal-workflows_how-to-be-more-effecient.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\presentations\stoicism_the-agile-philosophy.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\presentations\text-is-power.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="resources\presentations\the-elephant-in-the-room.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="resources\diagrams\test.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="resources\diagrams\test.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="resources\misc\phrases.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="resources\misc\phrases.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\WMaxZimmerman.Site.Shared\WMaxZimmerman.Site.Shared.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+</Project>
